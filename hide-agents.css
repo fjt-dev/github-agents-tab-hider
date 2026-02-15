@@ -1,0 +1,20 @@
+/* Hide the "Agents" tab wherever it appears on github.com */
+
+/* Repository navigation tab with exact text "Agents" — handled by content.js
+   since CSS alone cannot match by text content. This file provides a fast,
+   flicker-free hide for the most common structural selectors. */
+
+/* GitHub repo underline-nav tab whose id ends with "-agents-tab" */
+a[id$="-agents-tab"] {
+  display: none !important;
+}
+
+/* Global / app-level navigation links whose href ends with /agents */
+nav a[href$="/agents"] {
+  display: none !important;
+}
+
+/* Side-panel / dashboard list items linking to /agents */
+li a[href$="/agents"] {
+  display: none !important;
+}
