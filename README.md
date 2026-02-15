@@ -13,8 +13,8 @@ A lightweight Chrome extension that removes the "Agents" navigation tab from Git
 
 ## Installation
 1. Clone or download this repository
-   ```
-   git clone https://github.com/fjt-dev/delete-Agents-Tab/edit/main/README.md
+   ```bash
+   git clone https://github.com/fjt-dev/delete-Agents-Tab
    ```
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in the top-right corner)
