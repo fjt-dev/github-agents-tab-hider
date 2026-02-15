@@ -1,15 +1,11 @@
 /* Hide the "Agents" tab wherever it appears on github.com */
 
-/* Repository navigation tab with exact text "Agents" — handled by content.js
-   since CSS alone cannot match by text content. This file provides a fast,
-   flicker-free hide for the most common structural selectors. */
+/* This CSS fires at document_start for flicker-free hiding.
+   Only the most precise, low-false-positive selector is used here.
+   The content script (content.js) handles everything else via
+   text-content matching, which CSS alone cannot do. */
 
 /* GitHub repo underline-nav tab whose id ends with "-agents-tab" */
 a[id$="-agents-tab"] {
-  display: none !important;
-}
-
-/* Global / app-level navigation links whose href is exactly "/<owner>/<repo>/agents" */
-nav a[href$="/agents"] {
   display: none !important;
 }
