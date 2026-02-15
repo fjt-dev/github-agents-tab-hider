@@ -14,14 +14,13 @@ function hideAgentsTabs() {
     .querySelectorAll('a[id$="-agents-tab"]')
     .forEach((el) => (el.style.display = "none"));
 
-  // Any link whose trimmed text content is exactly "Agents"
+  // Any nav/tab link whose trimmed text content is exactly "Agents"
   document
     .querySelectorAll(
       'nav a[href*="agents"], .UnderlineNav a, .tabnav a, [role="tablist"] a'
     )
     .forEach((link) => {
       if (link.textContent.trim() === "Agents") {
-        // Hide the closest <li> wrapper if it exists, otherwise hide the link itself
         const li = link.closest("li");
         if (li) {
           li.style.display = "none";
@@ -30,16 +29,16 @@ function hideAgentsTabs() {
         }
       }
     });
+}
 
-  // Global / sidebar nav items linking to an /agents path
-  document.querySelectorAll('a[href$="/agents"]').forEach((link) => {
-    const li = link.closest("li");
-    if (li) {
-      li.style.display = "none";
-    } else {
-      link.style.display = "none";
-    }
-  });
+// Debounce so the observer doesn't fire hideAgentsTabs on every single mutation.
+let debounceTimer = null;
+function debouncedHide() {
+  if (debounceTimer) return;
+  debounceTimer = setTimeout(() => {
+    debounceTimer = null;
+    hideAgentsTabs();
+  }, 100);
 }
 
 // Run once immediately (document_start means DOM may still be loading, but
@@ -51,7 +50,7 @@ if (document.readyState === "loading") {
 }
 
 // Observe DOM mutations so we also catch Turbo / pjax navigations.
-const observer = new MutationObserver(hideAgentsTabs);
+const observer = new MutationObserver(debouncedHide);
 observer.observe(document.documentElement, {
   childList: true,
   subtree: true,

@@ -9,12 +9,7 @@ a[id$="-agents-tab"] {
   display: none !important;
 }
 
-/* Global / app-level navigation links whose href ends with /agents */
+/* Global / app-level navigation links whose href is exactly "/<owner>/<repo>/agents" */
 nav a[href$="/agents"] {
-  display: none !important;
-}
-
-/* Side-panel / dashboard list items linking to /agents */
-li a[href$="/agents"] {
   display: none !important;
 }
