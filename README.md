@@ -1,7 +1,5 @@
 # GitHub Agents Tab Hider
 
-**Chrome extension to hide the Agents tab on github.com**
-
 A lightweight Chrome extension that removes the "Agents" navigation tab from GitHub's interface, providing a cleaner workspace for developers who don't use this feature.
 
 ## Features
