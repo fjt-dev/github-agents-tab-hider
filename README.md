@@ -1,68 +1,36 @@
 # GitHub Agents Tab Hider
 
-**Chrome extension to hide the Agents tab on GitHub**
+**Chrome extension to hide the Agents tab on github.com**
 
 A lightweight Chrome extension that removes the "Agents" navigation tab from GitHub's interface, providing a cleaner workspace for developers who don't use this feature.
 
 ## Features
 
 - Automatically hides the "Agents" tab across all GitHub pages
-- Works with both server-rendered and dynamically loaded content
 - No data collection or tracking
-- Instant hiding with no visual flicker
+
+### Before
+
+![Navigation with the Agents tab](https://private-user-images.githubusercontent.com/157100279/550477678-f2851e9b-df41-4cbc-8c55-caca749f5af6.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEyNTA2MjksIm5iZiI6MTc3MTI1MDMyOSwicGF0aCI6Ii8xNTcxMDAyNzkvNTUwNDc3Njc4LWYyODUxZTliLWRmNDEtNGNiYy04YzU1LWNhY2E3NDlmNWFmNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxNlQxMzU4NDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wYTc5ODI2NjZiMmMyZDQ1MjQyZjFiODVmNWVkMTcwOTg5YTFmMDZjMDJkNmM3MTk2MjNiOTk5NTNlYTU0NmYwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.mARlTQKAoyH0xBkCnin-ldezGtbqmaH0ABoahrsTOKc)
+
+### After
+
+![Navigation without the Agents tab](https://private-user-images.githubusercontent.com/157100279/550477677-cf43f560-57d0-4239-9df2-4f396a34dbdd.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEyNTA2MjksIm5iZiI6MTc3MTI1MDMyOSwicGF0aCI6Ii8xNTcxMDAyNzkvNTUwNDc3Njc3LWNmNDNmNTYwLTU3ZDAtNDIzOS05ZGYyLTRmMzk2YTM0ZGJkZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxNlQxMzU4NDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hYjcxM2MyNDgwNDZiODhjNjc2MTk2MjY4OTMwNjdkNDdjNTZhOTA0ZTE2MGYwMzBjNzgxYWFkMjk4ZTljMGMyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.DiFYJzUqBbMkqu1o_JcgcYXdbbefUrcPHpHIKYgX2JM)
 
 ## Installation
+
 1. Clone or download this repository
    ```bash
-   git clone https://github.com/fjt-dev/delete-Agents-Tab
+   git clone https://github.com/fjt-dev/github-agents-tab-hider
    ```
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in the top-right corner)
 4. Click **Load unpacked** and select the project folder
 5. The extension is now active on github.com
 
-## How It Works
-
-The extension uses a two-layer approach for reliable tab hiding:
-
-1. **CSS-based hiding** - Instantly hides tabs matching known selectors before the page fully renders, preventing visual flicker
-2. **JavaScript observer** - A MutationObserver watches for dynamically-inserted tabs during Turbo/pjax navigations
-
-This combination ensures the Agents tab remains hidden even as you navigate through GitHub's single-page application experience.
-
-## Technical Details
-
-### Files
-
-| File | Purpose |
-|------|---------|
-| `manifest.json` | Chrome Manifest V3 extension configuration |
-| `hide-agents.css` | CSS rules to hide Agents tab elements |
-| `content.js` | Content script for dynamic tab observation |
-| `icon48.png` | Extension icon (48×48) |
-| `icon128.png` | Extension icon (128×128) |
-
-### Architecture
-
-- **Manifest Version**: 3 (latest Chrome extension standard)
-- **Run Time**: `document_start` for maximum performance
-- **Permissions**: Minimal - only operates on github.com
-- **Privacy**: No data collection, no external requests
-
-### Targeted Selectors
-
-The extension hides elements matching:
-- Repository navigation tabs with ID ending in `-agents-tab`
-- Links with href ending in `/agents`
-- Navigation links with text content "Agents"
-
-## License
-
-MIT License - feel free to use and modify as needed.
-
 ## Support
 
-If you encounter any issues or have suggestions, please open an issue on GitHub.
+Open an issue on GitHub for bugs or suggestions.
 
 ---
 
