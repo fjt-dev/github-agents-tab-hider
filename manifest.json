@@ -1,13 +1,22 @@
 {
   "manifest_version": 3,
   "name": "Hide GitHub Agents Tab",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Hides the Agents tab on github.com",
-  "permissions": [],
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "css": ["hide-agents.css"],
       "js": ["content.js"],
       "run_at": "document_start"
     }
