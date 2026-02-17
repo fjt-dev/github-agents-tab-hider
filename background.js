@@ -2,9 +2,9 @@
 
 // Set default state on install
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.local.get({ enabled: true }, (data) => {
+  chrome.storage.sync.get({ enabled: true }, (data) => {
     if (data.enabled === undefined) {
-      chrome.storage.local.set({ enabled: true });
+      chrome.storage.sync.set({ enabled: true });
     }
   });
 });

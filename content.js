@@ -140,7 +140,7 @@ chrome.runtime.onMessage.addListener((msg) => {
 
 // Initialize based on saved state
 function init() {
-  chrome.storage.local.get({ enabled: true }, (data) => {
+  chrome.storage.sync.get({ enabled: true }, (data) => {
     if (data.enabled) {
       enable();
     }
